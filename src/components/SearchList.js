@@ -6,8 +6,8 @@ const SearchList = (props) => {
   const { source } = props;
   return (
     <section>
-      {source.items != 0 ? (
-        source.items.map((news) => (
+      {source != 0 ? (
+        source.map((news) => (
           <ListItem
             key={Math.random()}
             title={news.title}

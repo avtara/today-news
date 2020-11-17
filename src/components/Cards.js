@@ -8,7 +8,7 @@ const Cards = (props) => {
     <section className="mt-2">
       <Row>
         {source
-          ? source.items.map((news) => (
+          ? source.map((news) => (
               <Col sm="4" key={Math.random()}>
                 <CardItem
                   key={Math.random()}

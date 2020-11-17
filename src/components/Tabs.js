@@ -18,7 +18,6 @@ const Tabs = (props) => {
     getNewsBBC();
     getNewsCNN();
   }, []);
-
   return (
     <Container>
       <div>
@@ -51,7 +50,7 @@ const Tabs = (props) => {
                 <h1>Loading ...</h1>
               </div>
             ) : (
-              <Cards source={props.payloadBBC} />
+              <Cards source={props.payloadBBC.items.articles} />
             )}
 
             {props.errBBC && <h3 className="error">{props.errBBC.message}</h3>}
@@ -62,7 +61,7 @@ const Tabs = (props) => {
                 <h1>Loading ...</h1>
               </div>
             ) : (
-              <Cards source={props.payloadTechcrunch} />
+              <Cards source={props.payloadTechcrunch.items.articles} />
             )}
 
             {props.errTechcrunch && (

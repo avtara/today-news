@@ -25,7 +25,7 @@ const Searchpage = (props) => {
               <h1>Loading ...</h1>
             </div>
           ) : (
-            <SearchList source={payload} />
+            <SearchList source={payload.items.articles} />
           )}
           {err && <h3 className="error">{err.message}</h3>}
         </section>

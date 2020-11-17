@@ -1,4 +1,13 @@
 import newsApi from "../../constant/api";
+import {
+  bbcData,
+  covidData,
+  indonesiaData,
+  lifetyleData,
+  noResult,
+  techcrunchData,
+  vaccineData
+} from "../../constant/mockData";
 
 export function bbcHasError(err) {
   return {
@@ -26,13 +35,7 @@ export function bbcFetchDataSuccess(items) {
 
 export const bbcFetchData = () => async (dispatch) => {
   try {
-    const bbc = await newsApi.get(`top-headlines?sources=bbc-news`, {
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
-      },
-      mode: "no-cors"
-    });
-    dispatch(bbcFetchDataSuccess(bbc.data.articles));
+    dispatch(bbcFetchDataSuccess(bbcData));
   } catch (e) {
     dispatch(bbcHasError(e));
   }
@@ -64,13 +67,7 @@ export function techcrunchFetchDataSuccess(items) {
 
 export const techcrunchFetchData = () => async (dispatch) => {
   try {
-    const techcrunch = await newsApi.get(`top-headlines?sources=techcrunch`, {
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
-      },
-      mode: "no-cors"
-    });
-    dispatch(techcrunchFetchDataSuccess(techcrunch.data.articles));
+    dispatch(techcrunchFetchDataSuccess(techcrunchData));
   } catch (e) {
     dispatch(techcrunchHasError(e));
   }
@@ -102,13 +99,28 @@ export function searchFetchDataSuccess(items) {
 
 export const searchFetchData = (pathname) => async (dispatch) => {
   try {
-    const searchRes = await newsApi.get(`everything?q=${pathname}`, {
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
-      },
-      mode: "no-cors"
-    });
-    dispatch(searchFetchDataSuccess(searchRes.data.articles));
+    switch (pathname) {
+      case "indonesia":
+        dispatch(searchFetchDataSuccess(indonesiaData));
+        break;
+      case "corona":
+        dispatch(searchFetchDataSuccess(covidData));
+        break;
+      case "covid-19":
+        dispatch(searchFetchDataSuccess(covidData));
+        break;
+      case "lifestyle":
+        dispatch(searchFetchDataSuccess(lifetyleData));
+        break;
+      case "bitcoin":
+        dispatch(searchFetchDataSuccess(lifetyleData));
+        break;
+      case "vaccine":
+        dispatch(searchFetchDataSuccess(vaccineData));
+        break;
+      default:
+        dispatch(searchFetchDataSuccess(noResult));
+    }
   } catch (e) {
     dispatch(searchHasError(e));
   }
