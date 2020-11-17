@@ -15,7 +15,7 @@ function App() {
         <Route path="/search" component={Searchpage}>
           <Route path="/:id" component={Searchpage} />
         </Route>
-        <Route component={NoMatch} />
+        {/* <Route component={NoMatch} /> */}
       </Switch>
     </Router>
   );
