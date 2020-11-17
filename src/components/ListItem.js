@@ -23,9 +23,9 @@ const ListItem = (props) => {
             className="img-square-wrapper"
           />
         </Col>
-        <Col sm="auto">
+        <Col sm="8">
           <CardBody>
-            <CardTitle tag="h6">{props.title}</CardTitle>
+            <CardTitle tag="h5">{props.title}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">
               {new Date(props.publishedAt).toLocaleDateString("en-CA", {
                 weekday: "long",

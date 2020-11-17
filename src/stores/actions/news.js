@@ -30,7 +30,7 @@ export const bbcFetchData = () => async (dispatch) => {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
       },
-      mode: "cors"
+      mode: "no-cors"
     });
     dispatch(bbcFetchDataSuccess(bbc.data.articles));
   } catch (e) {
@@ -68,7 +68,7 @@ export const techcrunchFetchData = () => async (dispatch) => {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
       },
-      mode: "cors"
+      mode: "no-cors"
     });
     dispatch(techcrunchFetchDataSuccess(techcrunch.data.articles));
   } catch (e) {
@@ -106,7 +106,7 @@ export const searchFetchData = (pathname) => async (dispatch) => {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
       },
-      mode: "cors"
+      mode: "no-cors"
     });
     dispatch(searchFetchDataSuccess(searchRes.data.articles));
   } catch (e) {

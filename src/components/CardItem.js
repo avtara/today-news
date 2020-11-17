@@ -6,7 +6,9 @@ const CardItem = (props) => {
   return (
     <Card body className="mt-2">
       <CardImg top width="100%" src={props.photo} alt="Card image cap" />
-      <CardTitle>{props.title}</CardTitle>
+      <CardTitle>
+        <h5 className="mt-2">{props.title}</h5>
+      </CardTitle>
       <CardText>
         {new Date(props.publishedAt).toLocaleDateString("en-CA", {
           weekday: "long",
