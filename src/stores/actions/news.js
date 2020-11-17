@@ -30,6 +30,10 @@ export const bbcFetchData = () => async (dispatch) => {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`,
         "Access-Control-Allow-Origin": "*"
+      },
+      proxy: {
+        host: process.env.REACT_APP_NEWS_DOMAIN
+        //port: 3000
       }
     });
     dispatch(bbcFetchDataSuccess(bbc.data.articles));

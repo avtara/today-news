@@ -9,15 +9,15 @@ import { useLocation } from "react-router-dom";
 
 const Searchpage = (props) => {
   const { payload, loading, err } = props;
-  const aw = useLocation().pathname.split("/").pop();
+  const location = useLocation().pathname.split("/").pop();
   useEffect(() => {
     const { getSearchNews } = props;
-    getSearchNews(aw);
+    getSearchNews(location);
   }, []);
   return (
     <div>
       <Headers />
-      <Hero value={aw} />
+      <Hero value={location} />
       <Container>
         <section>
           {loading ? (

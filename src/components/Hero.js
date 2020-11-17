@@ -10,7 +10,6 @@ import {
 } from "reactstrap";
 import { BsFillCursorFill, BsSearch } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
-import SmallButton from "./SmallButton";
 
 const Hero = (props) => {
   const [value, setValue] = useState(props.value);
