@@ -28,7 +28,8 @@ export const bbcFetchData = () => async (dispatch) => {
   try {
     const bbc = await newsApi.get(`top-headlines?sources=bbc-news`, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
+        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`,
+        "Access-Control-Allow-Origin": "*"
       }
     });
     dispatch(bbcFetchDataSuccess(bbc.data.articles));
@@ -65,7 +66,8 @@ export const techcrunchFetchData = () => async (dispatch) => {
   try {
     const techcrunch = await newsApi.get(`top-headlines?sources=techcrunch`, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
+        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`,
+        "Access-Control-Allow-Origin": "*"
       }
     });
     dispatch(techcrunchFetchDataSuccess(techcrunch.data.articles));
@@ -102,7 +104,8 @@ export const searchFetchData = (pathname) => async (dispatch) => {
   try {
     const searchRes = await newsApi.get(`everything?q=${pathname}`, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
+        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`,
+        "Access-Control-Allow-Origin": "*"
       }
     });
     dispatch(searchFetchDataSuccess(searchRes.data.articles));
