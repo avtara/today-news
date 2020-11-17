@@ -28,13 +28,9 @@ export const bbcFetchData = () => async (dispatch) => {
   try {
     const bbc = await newsApi.get(`top-headlines?sources=bbc-news`, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`,
-        "Access-Control-Allow-Origin": "*"
+        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
       },
-      proxy: {
-        host: process.env.REACT_APP_NEWS_DOMAIN
-        //port: 3000
-      }
+      mode: "cors"
     });
     dispatch(bbcFetchDataSuccess(bbc.data.articles));
   } catch (e) {
@@ -70,9 +66,9 @@ export const techcrunchFetchData = () => async (dispatch) => {
   try {
     const techcrunch = await newsApi.get(`top-headlines?sources=techcrunch`, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`,
-        "Access-Control-Allow-Origin": "*"
-      }
+        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
+      },
+      mode: "cors"
     });
     dispatch(techcrunchFetchDataSuccess(techcrunch.data.articles));
   } catch (e) {
@@ -108,9 +104,9 @@ export const searchFetchData = (pathname) => async (dispatch) => {
   try {
     const searchRes = await newsApi.get(`everything?q=${pathname}`, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`,
-        "Access-Control-Allow-Origin": "*"
-      }
+        Authorization: `Bearer ${process.env.REACT_APP_NEWS_API_KEY}`
+      },
+      mode: "cors"
     });
     dispatch(searchFetchDataSuccess(searchRes.data.articles));
   } catch (e) {
