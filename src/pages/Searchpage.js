@@ -14,6 +14,7 @@ const Searchpage = (props) => {
   useEffect(() => {
     const { getSearchNews } = props;
     getSearchNews(location);
+    document.title = `Search ${location}`;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useLocation
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Searchpage from "./pages/Searchpage";
 import Page404 from "./pages/Page404";

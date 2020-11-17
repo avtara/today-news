@@ -6,6 +6,9 @@ import { useLocation } from "react-router-dom";
 
 const Page404 = (props) => {
   const location = useLocation();
+  useEffect(() => {
+    document.title = "404 Not Found Page";
+  }, []);
   return (
     <div>
       <Headers />
