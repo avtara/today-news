@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import { connect } from "react-redux";
 import { searchFetchData } from "../stores/actions/news";
 import { useLocation } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 const Searchpage = (props) => {
   const { payload, loading, err } = props;
@@ -13,6 +14,7 @@ const Searchpage = (props) => {
   useEffect(() => {
     const { getSearchNews } = props;
     getSearchNews(location);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
@@ -22,7 +24,7 @@ const Searchpage = (props) => {
         <section>
           {loading ? (
             <div className="d-flex justify-content-center">
-              <h1>Loading ...</h1>
+              <Loader type="Puff" color="#f7797d" height={150} width={150} />
             </div>
           ) : (
             <SearchList source={payload.items.articles} />

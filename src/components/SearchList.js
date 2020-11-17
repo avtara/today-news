@@ -6,7 +6,7 @@ const SearchList = (props) => {
   const { source } = props;
   return (
     <section>
-      {source != 0 ? (
+      {source !== 0 ? (
         source.map((news) => (
           <ListItem
             key={Math.random()}

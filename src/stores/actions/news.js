@@ -1,6 +1,6 @@
-import newsApi from "../../constant/api";
 import {
   bbcData,
+  bitcoinData,
   covidData,
   indonesiaData,
   lifetyleData,
@@ -113,7 +113,7 @@ export const searchFetchData = (pathname) => async (dispatch) => {
         dispatch(searchFetchDataSuccess(lifetyleData));
         break;
       case "bitcoin":
-        dispatch(searchFetchDataSuccess(lifetyleData));
+        dispatch(searchFetchDataSuccess(bitcoinData));
         break;
       case "vaccine":
         dispatch(searchFetchDataSuccess(vaccineData));

@@ -5,6 +5,7 @@ import classnames from "classnames";
 import Cards from "./Cards";
 import { bbcFetchData, techcrunchFetchData } from "../stores/actions/news";
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
 
 const Tabs = (props) => {
   const [activeTab, setActiveTab] = useState("1");
@@ -47,7 +48,7 @@ const Tabs = (props) => {
           <TabPane tabId="1">
             {props.loadingBBC ? (
               <div className="d-flex justify-content-center">
-                <h1>Loading ...</h1>
+                <Loader type="Puff" color="#f7797d" height={150} width={150} />
               </div>
             ) : (
               <Cards source={props.payloadBBC.items.articles} />
@@ -58,7 +59,7 @@ const Tabs = (props) => {
           <TabPane tabId="2">
             {props.loadingTechcrunch ? (
               <div className="d-flex justify-content-center">
-                <h1>Loading ...</h1>
+                <Loader type="Puff" color="#f7797d" height={150} width={150} />
               </div>
             ) : (
               <Cards source={props.payloadTechcrunch.items.articles} />
